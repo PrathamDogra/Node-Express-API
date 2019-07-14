@@ -19,15 +19,29 @@ router.post('/',(req, res, next) =>{
 router.get('/:productId',(req, res, next)=>{
     const id = req.params.productId;
     if(id==='specialID'){
-         res.status(200).json({
+       return  res.status(200).json({
             message:"You have targeted a specail Id",
             id:id
          })
     } else {
-        req.status(200).json({
+       return req.status(200).json({
             message: "You have targeted an Id"
         })
     }
+})
+
+router.patch('/:productId',(req, res, next)=>{
+
+    res.status(200).json({
+        message:'Updated product',
+    })
+
+})
+
+router.delete('/:productId', (req, res, next)=>{
+    res.status(200).json({
+        message:'Deleted the product',
+    })
 })
 
 module.exports= router;
