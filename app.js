@@ -12,7 +12,7 @@ const productRoutes = require('./api/routes/products');
 //         message:'The code works',
 //     })
 // })
-
+// '/products' is a filter, only requests that begins with '/products' can go to the middleware productRoutes.
 app.use('/products', productRoutes);
 
 module.exports = app;
