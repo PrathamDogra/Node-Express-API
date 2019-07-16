@@ -16,6 +16,7 @@ router.post('/',(req, res, next) =>{
     });
 });
 
+<<<<<<< HEAD
 router.get('/:productId',(req, res, next) => {
   const id = req.params.produceId;
   if(id === 'special'){
@@ -33,6 +34,34 @@ router.get('/:productId',(req, res, next) => {
 
 router.patch('/:productId',(req, res, next)=>{
     res.status(200).json({})
+=======
+router.get('/:productId',(req, res, next)=>{
+    const id = req.params.productId;
+    if(id==='specialID'){
+       return  res.status(200).json({
+            message:"You have targeted a specail Id",
+            id:id
+         })
+    } else {
+       return req.status(200).json({
+            message: "You have targeted an Id"
+        })
+    }
+})
+
+router.patch('/:productId',(req, res, next)=>{
+
+    res.status(200).json({
+        message:'Updated product',
+    })
+
+})
+
+router.delete('/:productId', (req, res, next)=>{
+    res.status(200).json({
+        message:'Deleted the product',
+    })
+>>>>>>> b6c630a0aef402fb4a8b604aa416eacbc1bd8cbb
 })
 
 module.exports= router;
