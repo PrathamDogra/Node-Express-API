@@ -1,6 +1,6 @@
-const express =require('express');
+const express = require('express');
 
-const router =express.Router
+const router = express.Router
 
 router.get('/',(req, res, next) =>{
     res.status(200).json({
@@ -18,7 +18,7 @@ router.post('/',(req, res, next) =>{
 
 router.get('/:productId',(req, res, next)=>{
     const id = req.params.productId;
-    if(id==='specialID'){
+    if(id==='specialId'){
        return  res.status(200).json({
             message:"You have targeted a specail Id",
             id:id
@@ -28,20 +28,20 @@ router.get('/:productId',(req, res, next)=>{
             message: "You have targeted an Id"
         })
     }
-})
+});
 
 router.patch('/:productId',(req, res, next)=>{
 
     res.status(200).json({
-        message:'Updated product',
+        message:"Updated product",
     })
 
-})
+});
 
 router.delete('/:productId', (req, res, next)=>{
     res.status(200).json({
-        message:'Deleted the product',
+        message:"Deleted the product",
     })
-})
+});
 
-module.exports= router;
+module.exports = router;
