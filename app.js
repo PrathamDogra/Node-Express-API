@@ -1,14 +1,21 @@
 const express = require('express')
+const mongoose =require('mongoose')
 // the app executes the express like a function
 const app = express();
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders')
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+MongoClient = require('mongodb').MongoClient
 //Connecting to our DataBase cloud
 
-mongoose.connect(`mongodb+srv://PrathamDB:${process.env.MONGO_ATLAS_PW} @node-express-api-cmmol.mongodb.net/test?retryWrites=true&w=majority`)
+// mongoose.connect(`mongodb+srv://PrathamDB:${process.env.MONGO_ATLAS_PW} @node-express-api-cmmol.mongodb.net/test?retryWrites=true&w=majority`,{
+//     useNewUrlParser:true
+// })
+
+MongoClient.connect(`mongodb+srv://PrathamDB:${process.env.MONGO_ATLAS_PW} @node-express-api-cmmol.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true })
+
+
 //For logging the error
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
