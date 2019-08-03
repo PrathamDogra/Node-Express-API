@@ -6,15 +6,8 @@ const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders')
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-// MongoClient = require('mongodb').MongoClient
+
 //Connecting to our DataBase cloud
-
-// mongoose.connect(`mongodb+srv://PrathamDB:${process.env.MONGO_ATLAS_PW} @node-express-api-cmmol.mongodb.net/test?retryWrites=true&w=majority`,{
-//     useNewUrlParser:true
-// })
-
-// MongoClient.connect(`mongodb+srv://PrathamDB:${process.env.MONGO_ATLAS_PW} @node-express-api-cmmol.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true })
-
 mongoose.connect(`mongodb+srv://Pratham:${process.env.MONGO_ATLAS_PW}@nodeapi-gx6ut.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true })
 
 //For logging the error

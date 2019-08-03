@@ -4,10 +4,15 @@ const mongoose = require('mongoose')
 const Product = require('../models/products')
 
 router.get('/',(req, res, next) =>{
-    res.status(200).json({
-        message:"Handling GET requests to /products",
-
-    });
+   Product.find()
+   .exec()
+   .then(docs=>{
+       console.log(docs);
+       res.status(200).json(docs);
+   }).catch(err=>{
+       console.log(err);
+       res.status(500).json(docs);
+   })
 });
 
 router.post('/',(req, res, next) =>{
@@ -37,7 +42,7 @@ router.get('/:productId',(req, res, next)=>{
     .exec()
     .then(
         doc=>{
-            console.log(doc);
+            console.log("From Database ",doc);
             res.status(200).json({doc});})
             .catch(err=>{
                 console.log(err);
