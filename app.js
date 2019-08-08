@@ -8,7 +8,17 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 //Connecting to our DataBase cloud
-mongoose.connect(`mongodb+srv://Pratham:${process.env.MONGO_ATLAS_PW}@nodeapi-gx6ut.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true })
+// mongoose.connect(`mongodb+srv://Pratham:${process.env.MONGO_ATLAS_PW}@nodeapi-gx6ut.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true })
+
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@nodeapi-gx6ut.mongodb.net/test?retryWrites=true&w=majority`, 
+{ useNewUrlParser: true })
+.then(connect=>console.log(`The connect is established ${connect}`))
+.catch(err=>console.log(`There is an error ${err}`))
+
+// const srv = mongoose.connect(`mongodb + srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@nodeapi-gx6ut.mongodb.net/test?retryWrites=true&w=majority`,
+    // { useNewUrlParser: true })
+
+// console.log(`This is server ${srv}`);
 
 //For logging the error
 app.use(morgan('dev'));
